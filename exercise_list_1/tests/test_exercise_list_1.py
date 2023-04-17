@@ -1,5 +1,5 @@
 import pytest
-from exercise_list_1 import q1, q2, q3
+from exercise_list_1 import q1, q2, q3, q4
 
 
 def enter_input(input_text, monkeypatch):
@@ -38,10 +38,8 @@ def test_q3():
 
 
 @pytest.mark.parametrize(
-    "test_string, expected_text", [
-    ("foo", "\n"),
-    ("abar", "abar\n")
-    ])
+    "test_string, expected_text", [("foo", ""), ("abar", "abar\n")]
+)
 def test_q4(monkeypatch, capsys, test_string, expected_text):
     enter_input(test_string, monkeypatch)
     q4.print_if_starts_with_a()
