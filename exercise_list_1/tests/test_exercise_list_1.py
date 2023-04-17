@@ -1,4 +1,3 @@
-import pytest
 from exercise_list_1 import q1, q2, q3
 
 
