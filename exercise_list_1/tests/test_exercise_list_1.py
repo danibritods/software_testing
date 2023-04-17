@@ -18,3 +18,12 @@ def test_q1(monkeypatch, capsys):
     q1.main()
     captured = capture_print(capsys)
     assert out_text == captured
+
+
+def test_q2(capsys):
+    test_string = "12345"
+    expected_size = 5
+
+    q2.string_length(test_string)
+    captured = capture_print(capsys)
+    assert expected_size == captured
