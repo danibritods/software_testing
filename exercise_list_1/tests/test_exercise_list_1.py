@@ -28,3 +28,9 @@ def test_q2(capsys):
     q2.string_length(test_string)
     captured = capture_print(capsys)
     assert captured == expected_text, "Should be 5."
+
+def test_q3():
+    test_string = "0011001"
+    expected_count_1 = 3
+    q3.count_ones(test_string)
+    assert test_string == expected_count_1, "Should be 3."
