@@ -23,7 +23,8 @@ def test_q1(monkeypatch, capsys):
 def test_q2(capsys):
     test_string = "12345"
     expected_size = 5
+    expected_text = f"{expected_size}\n"
 
     q2.string_length(test_string)
     captured = capture_print(capsys)
-    assert expected_size == captured
+    assert captured == expected_text, "Should be 5."
