@@ -1,3 +1,4 @@
+import pytest
 from exercise_list_1 import q1, q2, q3
 
 
@@ -34,3 +35,15 @@ def test_q3():
     expected_count_1 = 3
     received = q3.count_ones(test_string)
     assert received == expected_count_1, "Should be 3."
+
+
+@pytest.mark.parametrize(
+    "test_string, expected_text", [
+    ("foo", "\n"),
+    ("abar", "abar\n")
+    ])
+def test_q4(monkeypatch, capsys, test_string, expected_text):
+    enter_input(test_string, monkeypatch)
+    q4.print_if_starts_with_a()
+    captured = capture_print(capsys)
+    assert captured == expected_text
