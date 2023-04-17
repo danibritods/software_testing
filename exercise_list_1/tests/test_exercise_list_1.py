@@ -7,8 +7,8 @@ def enter_input(input_text, monkeypatch):
 
 
 def capture_print(capsys):
-    captured_text = capsys.readouterr().out
-    return captured_text
+    captured_text = capsys.readouterr()
+    return captured_text.out
 
 
 def test_q1(monkeypatch, capsys):
