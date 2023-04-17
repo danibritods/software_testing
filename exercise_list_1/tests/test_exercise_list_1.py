@@ -1,5 +1,5 @@
 import pytest
-from exercise_list_1 import q1, q2
+from exercise_list_1 import q1, q2, q3
 
 
 def enter_input(input_text, monkeypatch):
@@ -29,8 +29,9 @@ def test_q2(capsys):
     captured = capture_print(capsys)
     assert captured == expected_text, "Should be 5."
 
+
 def test_q3():
     test_string = "0011001"
     expected_count_1 = 3
-    q3.count_ones(test_string)
-    assert test_string == expected_count_1, "Should be 3."
+    received = q3.count_ones(test_string)
+    assert received == expected_count_1, "Should be 3."
