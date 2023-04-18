@@ -66,6 +66,7 @@ def test_q5(test_string, expected_text):
     received = q5.remove_spaces(test_string)
     assert received == expected_text, f"Should be {expected_text}"
 
+
 @pytest.mark.parametrize(
     "input_sequence, expected_text",
     [
