@@ -18,7 +18,7 @@ def read_names_return_youngest_n_oldest() -> str:
         if input_age < youngest["age"] or youngest["age"] == 0:
             youngest["age"] = input_age
             youngest["name"] = input_name
-    result_string: str = f"youngest: {youngest['name']}:{youngest['age']}, oldest: {oldest['name']}:{oldest['age']}."
+    result_string: str = f"youngest: {youngest['name']}:{youngest['age']}, oldest: {oldest['name']}:{oldest['age']}."  # noqa: E501
     print(result_string)
 
 
