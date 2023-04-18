@@ -1,5 +1,5 @@
 import pytest
-from exercise_list_1 import q1, q2, q3, q4, q5
+from exercise_list_1 import q1, q2, q3, q4, q5, q6
 
 
 def enter_input(input_text, monkeypatch):
@@ -65,3 +65,27 @@ def test_q4(monkeypatch, capsys, test_string, expected_text):
 def test_q5(test_string, expected_text):
     received = q5.remove_spaces(test_string)
     assert received == expected_text, f"Should be {expected_text}"
+
+@pytest.mark.parametrize(
+    "input_sequence, expected_text",
+    [
+        (
+            ["Daniel", "25", "João", "21", "José", "20", "-1"],
+            "youngest: José:20, oldest: Daniel:25.\n",
+        ),
+        (
+            ["Pedro", "20", "-1"],
+            "youngest: Pedro:20, oldest: Pedro:20.\n",
+        ),
+    ],
+)
+def test_read_names_return_youngest_and_oldest(
+    monkeypatch,
+    capsys,
+    input_sequence,
+    expected_text,
+):
+    enter_input_sequence(input_sequence, monkeypatch)
+    q6.read_names_return_youngest_n_oldest()
+    captured = capture_print(capsys)
+    assert captured == expected_text
