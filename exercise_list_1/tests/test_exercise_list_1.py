@@ -6,6 +6,18 @@ def enter_input(input_text, monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: f"{input_text}")
 
 
+def enter_input_sequence(input_list, monkeypatch):
+    monkeypatch.setattr("builtins.input", lambda _: input_list.pop(0))
+
+
+def test_enter_input_sequence(monkeypatch):
+    enter_input_sequence([1, 2, 3], monkeypatch)
+    a = input("a")
+    b = input("b")
+    c = input("c")
+    assert [a, b, c] == [1, 2, 3]
+
+
 def capture_print(capsys):
     captured_text = capsys.readouterr()
     return captured_text.out
