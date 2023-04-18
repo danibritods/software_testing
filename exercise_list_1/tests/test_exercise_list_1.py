@@ -1,5 +1,5 @@
 import pytest
-from exercise_list_1 import q1, q2, q3, q4
+from exercise_list_1 import q1, q2, q3, q4, q5
 
 
 def enter_input(input_text, monkeypatch):
@@ -45,3 +45,11 @@ def test_q4(monkeypatch, capsys, test_string, expected_text):
     q4.print_if_starts_with_a()
     captured = capture_print(capsys)
     assert captured == expected_text
+
+
+@pytest.mark.parametrize(
+    "test_string, expected_text", [(" t e s t ", "test"), ("test", "teste")]
+)
+def test_q5(test_string, expected_text):
+    received = q5.remove_spaces(test_string)
+    assert received == expected_text, f"Should be {expected_text}"
