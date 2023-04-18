@@ -48,7 +48,7 @@ def test_q4(monkeypatch, capsys, test_string, expected_text):
 
 
 @pytest.mark.parametrize(
-    "test_string, expected_text", [(" t e s t ", "test"), ("test", "teste")]
+    "test_string, expected_text", [(" t e s t ", "test"), ("test", "test")]
 )
 def test_q5(test_string, expected_text):
     received = q5.remove_spaces(test_string)
